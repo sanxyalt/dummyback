@@ -1,0 +1,120 @@
+# IntelliJ IDEA specific files
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Maven specific files
+target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+.log
+
+# Eclipse specific files
+*.classpath
+*.project
+*.settings/
+bin/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Java specific files
+*.class
+*.jar
+*.war
+*.ear
+*.javadoc
+
+# Log files
+*.log
+logs/
+
+# Spring Boot specific files
+*.spring-boot-devtools.properties
+spring-boot-thin-launcher.properties
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Package files
+*.bak
+*.orig
+*.rej
+*.sublime-workspace
+*.sublime-project
+
+# Compiled dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Environment variable files
+.env
+.env.local
+.env.*.local
+.envrc
+.vscode/
+
+# MacOS specific files
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE specific files
+*.idea/
+*.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Lombok generated files
+lombok.config
+
+# Coverage Reports
+*.lcov
+coverage/
+.jacoco/
+
+# IntelliJ auto-generated files
+.idea/
+*.iml
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/libraries
+.idea/modules.xml
+.idea/artifacts
+.idea/.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+.idea/**/modules.xml
+.idea/**/artifacts
+
+# Test results
+/test-results/
+.test-instances/
+
+# Code analysis reports
+/report/
+
+# Maven wrapper
+.mvn/
+mvnw*
