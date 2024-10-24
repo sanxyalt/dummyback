@@ -4,10 +4,12 @@ public enum DumbShitStatus {
 
     HOLY_SHIT("HOLY_SHIT"),
     MAD_SHIT("MAD_SHIT"),
-    REGULAR_SHIT("REGULAR_SHIT");
+    REGULAR_SHIT("REGULAR_SHIT"),
+    SHITFACED("SHITFACED"),
+    BULLSHIT("BULLSHIT");
 
 
-    private String value;
+    private final String value;
 
     DumbShitStatus(String value) {
         this.value = value;

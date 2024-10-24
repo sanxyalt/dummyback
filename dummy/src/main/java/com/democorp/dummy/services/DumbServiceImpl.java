@@ -2,10 +2,15 @@ package com.democorp.dummy.services;
 
 import com.democorp.dummy.data.dto.ShitRequestDto;
 import com.democorp.dummy.data.dto.ShitResponseDto;
+import com.democorp.dummy.data.dto.ShitSearchResponseDto;
 import com.democorp.dummy.data.entities.DumbShit;
 import com.democorp.dummy.data.repositories.DumbShitRepository;
 import com.democorp.dummy.mapping.DumbMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class DumbServiceImpl implements DumbService {
@@ -30,5 +35,12 @@ public class DumbServiceImpl implements DumbService {
     public ShitResponseDto fetchShit(Integer id) {
         DumbShit dumbShit = dumbShitRepository.findById(id).orElseThrow(() -> new RuntimeException("NOT FOUND"));
         return dumbMapper.dumbShitEntityToShitResponse(dumbShit);
+    }
+
+    @Override
+    public Page<ShitSearchResponseDto> search(int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<DumbShit> dumbShitList = dumbShitRepository.findAll(pageable);
+        return dumbShitList.map(dumbMapper::dumbShitEntityToShitSearchResponse);
     }
 }
