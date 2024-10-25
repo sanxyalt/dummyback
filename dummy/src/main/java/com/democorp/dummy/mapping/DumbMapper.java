@@ -4,7 +4,7 @@ import com.democorp.dummy.data.dto.ShitRequestDto;
 import com.democorp.dummy.data.dto.ShitResponseDto;
 import com.democorp.dummy.data.dto.ShitSearchResponseDto;
 import com.democorp.dummy.data.entities.DumbShit;
-import com.democorp.dummy.data.entities.enums.DumbShitStatus;
+import com.democorp.dummy.data.enums.db.DumbShitStatus;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -13,7 +13,7 @@ import org.mapstruct.Named;
 public interface DumbMapper {
 
     @Mapping(target = "name", source = "dumbShit.shitName")
-    @Mapping(target = "status", source = "dumbShit.shitStatus")
+    @Mapping(target = "status", expression = "java(dumbShit.getShitStatus().toDto())")
     ShitResponseDto dumbShitEntityToShitResponse(DumbShit dumbShit);
 
     @Mapping(target = "shitName", source = "shitRequest.name")
@@ -33,5 +33,7 @@ public interface DumbMapper {
             case HOLY_SHIT, MAD_SHIT -> "YELLOW";
         };
     }
+
+
 
 }

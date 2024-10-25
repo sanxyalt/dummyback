@@ -1,6 +1,6 @@
 package com.democorp.dummy.utils;
 
-import com.democorp.dummy.data.dto.enums.DumbTitle;
+import com.democorp.dummy.data.enums.api.DumbTitle;
 
 public class DumbUtils {
 

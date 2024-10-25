@@ -1,4 +1,4 @@
-package com.democorp.dummy.data.dto.enums;
+package com.democorp.dummy.data.enums.api;
 
 public enum DumbTitle {
 

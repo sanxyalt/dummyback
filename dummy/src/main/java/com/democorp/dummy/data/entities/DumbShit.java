@@ -1,6 +1,6 @@
 package com.democorp.dummy.data.entities;
 
-import com.democorp.dummy.data.entities.enums.DumbShitStatus;
+import com.democorp.dummy.data.enums.db.DumbShitStatus;
 import com.democorp.dummy.utils.DumbUtils;
 import jakarta.persistence.*;
 

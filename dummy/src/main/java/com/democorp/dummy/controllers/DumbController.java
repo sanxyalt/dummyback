@@ -3,7 +3,9 @@ package com.democorp.dummy.controllers;
 import com.democorp.dummy.data.dto.ShitRequestDto;
 import com.democorp.dummy.data.dto.ShitResponseDto;
 import com.democorp.dummy.data.dto.ShitSearchResponseDto;
+import com.democorp.dummy.data.enums.api.EnumDto;
 import com.democorp.dummy.services.DumbService;
+import com.democorp.dummy.services.EnumService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.data.domain.Page;
@@ -12,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/dumb")
@@ -21,9 +24,11 @@ public class DumbController {
     private static final Logger logger = LogManager.getLogger(DumbController.class);
 
     private final DumbService dumbService;
+    private final EnumService enumService;
 
-    public DumbController(DumbService dumbService) {
+    public DumbController(DumbService dumbService, EnumService enumService) {
         this.dumbService = dumbService;
+        this.enumService = enumService;
     }
 
     @GetMapping("/{id}")
@@ -31,6 +36,12 @@ public class DumbController {
         logger.info("Fetching dumb shit with id : {}", id);
         ShitResponseDto response = dumbService.fetchShit(id);
         return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping("/all-enums")
+    ResponseEntity<Map<String, Set<EnumDto>>> fetchDumbEnumsPlease() {
+        logger.info("Fetching all the dumb shit enums........");
+        return ResponseEntity.ok().body(enumService.getAllEnumValues());
     }
 
     @PostMapping
