@@ -1,7 +1,10 @@
 package com.democorp.dummy.services;
 
+import com.democorp.dummy.controllers.DumbController;
 import com.democorp.dummy.data.enums.EnumInterface;
 import com.democorp.dummy.data.enums.api.EnumDto;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.core.type.filter.AssignableTypeFilter;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class EnumServiceImpl implements EnumService {
+
+    private static final Logger logger = LogManager.getLogger(EnumServiceImpl.class);
 
     private static final String ENUMS_FOLDER = "com.democorp.dummy.data.enums";
 
@@ -35,7 +40,7 @@ public class EnumServiceImpl implements EnumService {
                     enumMap.put(clazz.getSimpleName(), enumValues);
                 }
             } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+                logger.error("Enum was not found error.", e);
             }
         });
 
